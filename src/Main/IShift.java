@@ -5,6 +5,7 @@
  */
 package Main;
 
+import Entities.Shift;
 import Entities.Worker;
 import java.util.Map;
 
@@ -15,12 +16,18 @@ import java.util.Map;
 public class IShift {
     
     Map<Integer, Worker> Workers;
+    Map<Integer, Shift> Shifts;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         //This will run the main algo
     }
+    
+    
+    
+    
+    
     
     
     
