@@ -5,17 +5,32 @@
  */
 package Main;
 
+import Entities.Worker;
+import java.util.Map;
+
 /**
  *
  * @author nisan
  */
 public class IShift {
-
+    
+    Map<Integer, Worker> Workers;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //This will run the main algo
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
