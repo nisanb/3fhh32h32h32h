@@ -14,6 +14,7 @@ public class Shift {
     Worker chosenWorker;
     public Shift(Integer ID){
         this.ID = ID;
+        chosenWorker = null;
     }
 
     public void setID(Integer ID) {
@@ -24,5 +25,8 @@ public class Shift {
         return ID;
     }
     
+    public Worker getWorker(){
+        return chosenWorker;
+    }
     
 }

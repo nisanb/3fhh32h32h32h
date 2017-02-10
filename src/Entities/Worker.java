@@ -5,8 +5,10 @@
  */
 package Entities;
 
+import Main.IShift;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -15,12 +17,12 @@ import java.util.HashMap;
 public class Worker {
     private int id;
     private String name;
-    private HashMap<Shift, Double> favoriteShifts;
+    private Map<Shift, Double> favoriteShifts;
 
-    public Worker(int id, String name) {
+    public Worker(int id, String name, Map<Integer, Shift> shiftMap) {
         this.id = id;
         this.name = name;
-        this.favoriteShifts = new HashMap<Shift, Double>();
+        this.favoriteShifts = createShiftArr(shiftMap);
     }
 
     public int getId() {
@@ -42,8 +44,17 @@ public class Worker {
     public Double getShiftRate(Shift shiftNum) {
         return favoriteShifts.get(shiftNum);
     }
+  
+    public void setShiftRate(Shift shft, Double dbl){
+        favoriteShifts.put(shft, dbl);
+    }
     
-    public void addShiftRate(Shift shiftNum, Double shiftRate) {
-        favoriteShifts.put(shiftNum, shiftRate);
+    public Map<Shift, Double> createShiftArr(Map<Integer, Shift> hm){
+        Map<Shift, Double> toReturn = new HashMap<Shift, Double>();
+        for(int i=0; i<IShift.NumOfShifts;i++){
+            toReturn.put(hm.get(i), 1.0);
+        }
+        
+        return toReturn;
     }
 }
