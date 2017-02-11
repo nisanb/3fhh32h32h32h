@@ -5,16 +5,19 @@
  */
 package Entities;
 
+import java.util.Objects;
+
 /**
  *
  * @author nisan
  */
-public class Shift {
+public class Shift implements Comparable<Shift>{
     Integer ID;
-    Worker chosenWorker;
+    public Shift next, prev;
+    Worker worker;
     public Shift(Integer ID){
         this.ID = ID;
-        chosenWorker = null;
+        worker = null;
     }
 
     public void setID(Integer ID) {
@@ -26,7 +29,50 @@ public class Shift {
     }
     
     public Worker getWorker(){
-        return chosenWorker;
+        return worker;
     }
+
+    public void setWorker(Worker worker) {
+        this.worker = worker;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.ID);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Shift other = (Shift) obj;
+        if (!Objects.equals(this.ID, other.ID)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int compareTo(Shift o) {
+        return this.ID-o.ID;
+    }
+
+    @Override
+    public String toString() {
+        return ""+getID();
+    }
+    
+    
+    
+    
     
 }
